@@ -1,3 +1,4 @@
+package com.core.interfaces;
 
 interface a
 {

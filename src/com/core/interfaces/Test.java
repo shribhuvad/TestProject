@@ -1,3 +1,4 @@
+package com.core.interfaces;
 
 public class Test {
 	String shri;

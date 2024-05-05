@@ -2,6 +2,7 @@ package com.collection;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -73,6 +74,21 @@ class Employee2
 	@Override
 	public String toString() {
 		return "Employee2 [iD=" + iD + ", name=" + name + "]";
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(iD, name);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Employee2 other = (Employee2) obj;
+		return iD == other.iD && Objects.equals(name, other.name);
 	}
 
 

@@ -10,9 +10,9 @@ public class HashMapFunction {
 
 	public static void main(String[] args) {
 		HashMapFunction obj = new HashMapFunction();
-		 obj.show();
-	//	 obj.sameobjectAskey();
-		// obj.normalHash();
+		// obj.show();
+		// obj.sameobjectAskey();
+		obj.normalHash();
 
 	}
 
@@ -40,8 +40,8 @@ public class HashMapFunction {
 		map.put(obj3, "shri3");
 		System.out.println(map.get(obj3));
 		System.out.println(map.get(obj));
+		System.out.println(map.get(obj2));
 		System.out.println(map.size());
-
 
 		for (Entry<Employee2, String> iterable_element : map.entrySet()) {
 			System.out.println("---------------" + iterable_element.getKey() + "  " + iterable_element.getValue());
@@ -61,11 +61,9 @@ public class HashMapFunction {
 		map.put(obj2, "shri");
 		map.put(obj2, "shriiiii");
 
-
 		System.out.println("geting objet3 " + map.get(obj3));
 		System.out.println("geting objet2 " + map.get(obj2));
 		System.out.println("geting objet " + map.get(obj));
-
 
 		Set m = map.entrySet();
 
@@ -90,7 +88,5 @@ class Bin {
 	Bin(int s) {
 		a = s;
 	}
-
-
 
 }

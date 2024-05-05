@@ -1,15 +1,33 @@
 package com.core.java8;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class GroupBy {
 
 	public static void main(String[] args) {
+
+		// example1();
+		example2();
+
+	}
+
+	private static void example2() {
+		String array[] = { "Geeks", "forGeeks", "Geeks", "forGeeks", "A computer Portal", "shri", "SHRI" };
+
+		Map<String, Long> map = Arrays.asList(array).stream()
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+		System.out.println(map);
+	}
+
+	private static void example1() {
 		// TODO Auto-generated method stub
 		BlogPost obj = null;
 		obj = getBlogPost(BlogPostType.NEWS, 10);
@@ -20,6 +38,7 @@ public class GroupBy {
 		obj = getBlogPost(BlogPostType.REVIEW, 11);
 		posts.add(obj);
 
+		System.out.println(posts);
 		Map<BlogPostType, List<BlogPost>> postsPerType = posts.stream()
 				.collect(Collectors.groupingBy(p -> p.getType()));
 
@@ -28,6 +47,8 @@ public class GroupBy {
 
 		Map<BlogPostType, Double> averageLikesPerType = posts.stream()
 				.collect(Collectors.groupingBy(BlogPost::getType, Collectors.averagingInt(BlogPost::getLikes)));
+		Map<BlogPostType, Long> count = posts.stream()
+				.collect(Collectors.groupingBy(BlogPost::getType, Collectors.counting()));
 
 		Map<Object, Integer> averageLikesPerAuth = posts.stream()
 				.collect(Collectors.groupingBy(s -> s.getAuthor(), Collectors.summingInt(s -> s.getLikes())));
@@ -40,6 +61,7 @@ public class GroupBy {
 		System.out.println(averageLikesPerType);
 		System.out.println(averageLikesPerAuth);
 		System.out.println(maxLikes);
+		System.out.println(count);
 	}
 
 	private static BlogPost getBlogPost(BlogPostType type, int like) {
@@ -50,55 +72,6 @@ public class GroupBy {
 		return obj;
 	}
 
-}
-
-class BlogPost {
-	String title;
-	String author;
-	BlogPostType type;
-	int likes;
-
-	@Override
-	public String toString() {
-		return "BlogPost [title=" + title + ", author=" + author + ", type=" + type + ", likes=" + likes + "]";
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public String getAuthor() {
-		return author;
-	}
-
-	public BlogPostType getType() {
-		return type;
-	}
-
-	public int getLikes() {
-		return likes;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-
-	public void setType(BlogPostType type) {
-		this.type = type;
-	}
-
-	public void setLikes(int likes) {
-		this.likes = likes;
-	}
-
-}
-
-enum BlogPostType {
-	NEWS, REVIEW, GUIDE
 }
 
 //class Tuple {

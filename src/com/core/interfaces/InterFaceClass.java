@@ -1,3 +1,5 @@
+package com.core.interfaces;
+
 interface a3{}
 interface a2{}
 

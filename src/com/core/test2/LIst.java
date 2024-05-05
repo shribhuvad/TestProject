@@ -1,3 +1,5 @@
+package com.core.test2;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;

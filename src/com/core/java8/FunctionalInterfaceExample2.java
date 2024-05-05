@@ -10,6 +10,11 @@ interface sayable {
 	String toString();
 
 	boolean equals(Object obj);
+
+	default void shri() {
+		System.out.println("in SHRI");
+
+	}
 }
 
 public class FunctionalInterfaceExample2 implements sayable {
@@ -18,7 +23,8 @@ public class FunctionalInterfaceExample2 implements sayable {
 	}
 
 	public static void main(String[] args) {
-		FunctionalInterfaceExample2 fie = new FunctionalInterfaceExample2();
+		sayable fie = new FunctionalInterfaceExample2();
 		fie.say("Hello there");
+		fie.shri();
 	}
 }

@@ -1,3 +1,4 @@
+package com.core.test2;
 
 public class Test {
 
