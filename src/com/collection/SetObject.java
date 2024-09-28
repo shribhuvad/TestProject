@@ -71,6 +71,9 @@ public class SetObject {
 		Set a = new HashSet();
 		boolean flag = a.add(obj);
 		flag = a.add(obj2);
+		a.add("shri");
+		System.out.println(a);
+		System.out.println(a.add(obj2));
 		System.out.println(a.size());
 		System.out.println(flag);
 

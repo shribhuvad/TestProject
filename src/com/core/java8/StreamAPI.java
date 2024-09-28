@@ -6,19 +6,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class StreamAPI {
 
 	public static void main(String[] args) {
-		// filter1();
-		minMax();
+		filter1();
+		// minMax();
 	}
 
 	private static void minMax() {
 		List<Product> productsList = getList();
 
 		Product productA = productsList.stream().max((p1, p2) -> p1.price > p2.price ? 1 : -1).get();
+
+		Product productA1 = productsList.stream().max((Comparator.comparing(Product::getPrice))).get();
 
 		System.out.println("MAX PRODUCT:" + productA);
 
@@ -47,6 +50,8 @@ public class StreamAPI {
 		Float sum = productsList.stream().map(p -> p.price).reduce(0.0f, (a, b) -> a + b);
 
 		float sumn = productsList.stream().map(p -> p.price).reduce(0.0f, ((a, b) -> a + b));
+		double sumn2 = productsList.stream().map(p -> p.price).collect(Collectors.summingDouble(s -> s));
+		System.out.println("summingDouble" + sumn2);
 
 		System.out.println(sum);
 
@@ -59,6 +64,10 @@ public class StreamAPI {
 		Map<Integer, String> productPriceListMap = productsList.stream()
 				.collect(Collectors.toMap(p -> p.id, p -> p.name));
 		System.out.println("productPriceListMap:" + productPriceListMap);
+
+		// practice
+
+		productsList.stream().collect(Collectors.groupingBy(s -> s.getId(), Collectors.counting()));
 
 	}
 

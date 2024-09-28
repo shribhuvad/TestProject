@@ -11,6 +11,8 @@ class Child {
 	}
 
 	void a() {
+		System.out.println("In parent a()");
+
 	}
 
 }
@@ -23,6 +25,11 @@ public class StaticMethode extends Child {
 	}
 
 	static void show() throws IOException {
+		System.out.println("in child");
+
+	}
+
+	void show2() throws IOException {
 		System.out.println("in child");
 
 	}

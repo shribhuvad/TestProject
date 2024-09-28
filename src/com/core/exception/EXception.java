@@ -1,19 +1,19 @@
-package com.core;
+package com.core.exception;
 
 import java.io.IOException;
 
 public class EXception {
 
-	void m()   throws IOException,NullPointerException //throws IOException
+	void m() // throws IOException
 	{
-	     throw new IOException("device error");//checked exception
-		//throw new NullPointerException();
+		//throw new IOException("device error");// checked exception
+		 throw new NullPointerException();
 	}
 
 	void n() {
 		throw new NumberFormatException();
 	}
-     
+
 	void p() {
 		try {
 			n();

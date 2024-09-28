@@ -47,7 +47,7 @@ public class TreeSET {
 		System.out.println("HashSet--------------");
 		Set<Employee2> st=new HashSet<Employee2>();
 		Employee2 obj1=new Employee2(1,"shri");
-		Employee2 obj2=new Employee2(1,"bhuvad");
+		Employee2 obj2=new Employee2(1,"shri");
 		st.add(obj1);
 		st.add(obj2);
 		Iterator<Employee2> itr1=st.iterator();

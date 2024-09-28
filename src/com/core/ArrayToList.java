@@ -3,6 +3,10 @@ package com.core;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author admin
+ *28-May-2024
+ */
 public class ArrayToList {
 
 	public static void main(String args[]) {

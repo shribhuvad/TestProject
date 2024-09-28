@@ -1,18 +1,22 @@
 package com.collection;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class HashMapFunction {
 
 	public static void main(String[] args) {
 		HashMapFunction obj = new HashMapFunction();
-		// obj.show();
-		// obj.sameobjectAskey();
-		obj.normalHash();
+		obj.show();
+		obj.sameobjectAskey();
+		// obj.normalHash();
 
 	}
 
@@ -48,6 +52,16 @@ public class HashMapFunction {
 			System.out.println("------------");
 
 		}
+
+		List<Entry<Employee2, String>> list = map.entrySet().stream()
+				.sorted(Map.Entry.comparingByKey(Comparator.comparing(Employee2::getName)))
+				.collect(Collectors.toList());
+		LinkedHashMap<Employee2, String> map2 = new LinkedHashMap<>();
+		list.forEach(s -> {
+			map2.put(s.getKey(), s.getValue());
+		});
+
+		System.out.println(map2);
 
 	}
 

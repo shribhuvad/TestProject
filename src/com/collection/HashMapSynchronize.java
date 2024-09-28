@@ -1,6 +1,5 @@
 package com.collection;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -9,11 +8,9 @@ import java.util.concurrent.ConcurrentHashMap;
 public class HashMapSynchronize {
 
 	public static void main(String[] args) {
-heapsize
 		// hashmapModification();
-		// hashmapModification2();
+		hashmapModification2();
 		// hashmapModification3();
-		arrayListmodification();
 		// TODO Auto-generated method stub
 
 	}
@@ -71,60 +68,6 @@ heapsize
 		}
 
 		System.out.println("final MAP :" + map);
-	}
-
-	private static void arrayListmodification() {
-		// TODO Auto-generated method stub
-		ArrayList<String> list = new ArrayList<String>();
-		list.add("sggs");
-		list.add("csggs");
-		list.add("sgcgs");
-		list.add("sggxs");
-		list.add("sggsw");
-
-		Iterator<String> listIterator = list.iterator();
-
-		// Exception in thread "main" java.util.ConcurrentModificationException
-//	     for (String string : list) {
-//			list.add("dd");
-//		}
-
-		// it will not work Exception in thread "main" java.lang.OutOfMemoryError: Java
-		// heap space
-	     for(int i=0;i<list.size();i++)
-	     {
-	    	 list.add("sggs");
-	     }
-
-		// it work
-//	     for(int i=0;i<5;i++)
-//	     {
-//	    	 list.add("sggs");
-//	     }
-//	     
-		// it will work
-		/*
-		 * for(int i=0;i<list.size();i++) { list.remove("sggs"); }
-		 */
-
-		//
-		while (listIterator.hasNext()) {
-			System.out.println("inside loop");
-			// System.out.println(list + "done");
-			if (listIterator.next() == ("sggs")) {
-				listIterator.remove();
-			}
-			// list.remove("sggs");// Exception in thread "main"
-			// java.util.ConcurrentModificationException
-			// list.remove(1);// Exception in thread "main"
-			// java.util.ConcurrentModificationException
-			// list.add("ss"); // Exception in thread "main"
-			// java.util.ConcurrentModificationException
-
-		}
-
-		System.out.println(list + "done");
-
 	}
 
 	private static void hashmapModification() {

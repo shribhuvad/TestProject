@@ -12,7 +12,7 @@ public class SeriesAndpatern {
 		System.out.println(s);
 		while(count<20)
 		{
-			//System.out.print(i+" ");
+			System.out.print(i+" ");
 			i=i+j;
 			j=i;
 		}

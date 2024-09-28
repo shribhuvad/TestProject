@@ -2,6 +2,7 @@ package com.core.java8;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -13,8 +14,8 @@ public class GroupBy {
 
 	public static void main(String[] args) {
 
-		// example1();
-		example2();
+		example1();
+		// example2();
 
 	}
 
@@ -23,7 +24,7 @@ public class GroupBy {
 
 		Map<String, Long> map = Arrays.asList(array).stream()
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-
+		Arrays.asList(array).stream().sorted(Comparator.reverseOrder());
 		System.out.println(map);
 	}
 
@@ -57,11 +58,16 @@ public class GroupBy {
 				Collectors.groupingBy(s -> s.getType(), Collectors.maxBy(Comparator.comparing(s -> s.getLikes()))));
 		;
 
-		System.out.println(postsPerType);
-		System.out.println(averageLikesPerType);
-		System.out.println(averageLikesPerAuth);
-		System.out.println(maxLikes);
-		System.out.println(count);
+		System.out.println("postsPerType" + postsPerType);
+		System.out.println("averageLikesPerType" + averageLikesPerType);
+		System.out.println("averageLikesPerAuth" + averageLikesPerAuth);
+		System.out.println("maxLikes" + maxLikes);
+		System.out.println("count" + count);
+
+		posts.stream().sorted(Comparator.comparing(BlogPost::getType, Comparator.reverseOrder()));
+
+		posts.stream().sorted(Comparator.comparing(BlogPost::getType, Comparator.reverseOrder()));
+
 	}
 
 	private static BlogPost getBlogPost(BlogPostType type, int like) {

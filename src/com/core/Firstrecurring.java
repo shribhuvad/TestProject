@@ -9,9 +9,7 @@ public class Firstrecurring {
 
 	public static void main(String[] args) {
 
-		Scanner sc = new Scanner(System.in);
-		System.out.println("enter string");
-		String s = sc.nextLine();
+		String s = "shris";
 		System.out.println(s);
 		char ary[] = s.toCharArray();
 
@@ -20,8 +18,8 @@ public class Firstrecurring {
 		outerloop: for (int i = 0; i < ary.length; i++) {
 			for (int j = i + 1; j < ary.length; j++) {
 				if (ary[i] == ary[j]) {
-					System.out.println("first occurence is" + ary[i]);
-				  	break outerloop;
+					System.out.println("first occurence is " + ary[i]);
+					break outerloop;
 				}
 
 			}
